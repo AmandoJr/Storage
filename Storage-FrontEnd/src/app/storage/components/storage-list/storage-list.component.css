@@ -1,0 +1,21 @@
+.demo-table {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mat-column-demo-position {
+  width: 72px;
+  border-right: 1px solid currentColor;
+  text-align: center;
+}
+
+.mat-column-item-name {
+  width: 100px;
+}
+.mat-column-item-quantity {
+  width: 100px;
+}
+.mat-column-item-unitValue {
+  width: 100px;
+}
