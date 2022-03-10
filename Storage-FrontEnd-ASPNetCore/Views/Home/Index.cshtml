@@ -1,0 +1,49 @@
+﻿@using StorageModels.Models
+@{
+    ViewData["Title"] = "Home Page";
+    @model IEnumerable<ResultItem>
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Movement</h1>
+
+    <form action="/action_page.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+
+
+<div class="text-left">
+    <h1 class="display-4">Results</h1>
+
+    <div>
+        <h2 class="display-4">Average</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity </th>
+                    <th>UnitValue</th>
+                </tr>
+            </thead>
+            @foreach (ResultItem item in Model)
+            {
+                <tr>
+
+                    <td>@item.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitValue</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+</div>

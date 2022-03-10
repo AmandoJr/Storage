@@ -17,17 +17,12 @@ namespace StorageAPI.Controllers
 
         public StorageController(ILogger<StorageController> logger, IStorageService storageService)
         {
-            if (storageService is null)
-            {
-                throw new ArgumentNullException(nameof(storageService));
-            }
-
-            _logger = logger;
-
-            this._storageService = storageService;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _storageService = storageService ?? throw new ArgumentNullException(nameof(storageService));
         }
 
         [HttpPost]
+        [Route("Calculate")]
         public IEnumerable<ResultItem> Calculate(Mode mode, IEnumerable<Item> items)
         {
             switch (mode)
@@ -48,6 +43,7 @@ namespace StorageAPI.Controllers
 
 
         [HttpGet]
+        [Route("GetMockResultItems")]
         public IEnumerable<ResultItem> GetMockResultItems()
         {
             return new ResultItem[]
